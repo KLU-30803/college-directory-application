@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Dashboard</title>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		
+	<script>
+	function logout() {
+	    localStorage.removeItem('token');
+	    
+	    window.location.href = '/user/login';
+	}
+	</script>
+</head>
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/">Student - ERP</a>
+		<div class="collapse navbar-collapse">
+			
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <img
+						src="https://via.placeholder.com/30" class="rounded-circle"
+						alt="Profile Icon">
+				</a>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/profile">Profile</a> <a
+							class="dropdown-item" onclick="logout()">Logout</a>
+						<div class="dropdown-divider"></div>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container mt-5">
+		<h1>Welcome to the Student Dashboard</h1>
+		<div class="card mb-3">
+		    <div class="card-header">Personal Profile</div>
+		    <div class="card-body d-flex align-items-center">
+		        <img src="https://via.placeholder.com/150" class="rounded-circle me-3" alt="Profile Photo">
+		        <div>
+		            <h5>Student Name</h5>
+		            <p>Email: student@example.com</p>
+		            <p>Contact: (123) 456-7890</p>
+		        </div>
+		    </div>
+		</div>
+
+
+        <!-- Search for Other Students -->
+        <div class="card mb-3">
+            <div class="card-header">Search for Other Students</div>
+            <div class="card-body">
+                <input type="text" class="form-control" placeholder="Search by name, department, or year" id="searchBar">
+                <button class="btn btn-primary mt-2" onclick="searchStudents()">Search</button>
+                <ul id="searchResults" class="mt-3"></ul>
+            </div>
+        </div>
+
+        <!-- Contact Faculty Advisors -->
+        <div class="card mb-3">
+            <div class="card-header">Contact Faculty Advisors</div>
+            <div class="card-body">
+                <ul>
+                    <li>Advisor 1: <a>Email : advisor1@example.com</a> | Phone: (123) 456-7891</li>
+                    <li>Advisor 2: <a>Email : advisor2@example.com</a> | Phone: (123) 456-7892</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+        function searchStudents() {
+            const query = document.getElementById('searchBar').value;
+            const results = [
+                'Student A (CS)',
+                'Student B (EE)',
+                'Student C (ME)'
+            ].filter(student => student.toLowerCase().includes(query.toLowerCase()));
+
+            const resultsList = document.getElementById('searchResults');
+            resultsList.innerHTML = results.map(student => `<li>${student}</li>`).join('');
+        }
+    </script>
+</body>
+</html>

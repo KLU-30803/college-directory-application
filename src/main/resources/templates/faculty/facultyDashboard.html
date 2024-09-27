@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script>
+	function logout() {
+	    localStorage.removeItem('token');
+	    
+	    window.location.href = '/user/login';
+	}
+	</script>
+</head>
+<body>
+    <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Faculty - ERP</a>
+        <div class="collapse navbar-collapse">
+            
+            <ul class="navbar-nav ml-auto">
+                <!-- Profile and Logout Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="/path/to/profile-icon.png" alt="Profile" style="width: 30px; height: 30px;">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="/facultyProfile">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" onclick="logout()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Welcome to the Faculty Dashboard</h1>
+        <div class="card mb-3">
+            <div class="card-header">Announcements</div>
+            <div class="card-body">
+                <p>Here you can find the latest announcements related to your courses and faculty updates.</p>
+                <ul>
+                    <li>Course schedules have been updated.</li>
+                    <li>Next faculty meeting is on October 5th.</li>
+                    <li>Please submit grades by the end of the month.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Your Courses Section -->
+        <div class="card mb-3">
+            <div class="card-header">Your Courses</div>
+            <div class="card-body">
+                <p>Manage your courses and student interactions.</p>
+                <ul>
+                    <li>Course 1: Introduction to Computer Science</li>
+                    <li>Course 2: Advanced Mathematics</li>
+                    <li>Course 3: Physics Fundamentals</li>
+                </ul>
+                <a href="/courses" class="btn btn-primary">View All Courses</a>
+            </div>
+        </div>
+
+        <!-- Class List Section -->
+        <div class="card mb-3">
+            <div class="card-header">Manage Class List</div>
+            <div class="card-body">
+                <p>View students in your courses.</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Photo</th>
+                            <th>Contact Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Student A</td>
+                            <td><img src="https://via.placeholder.com/40" alt="Student A" class="rounded-circle"></td>
+                            <td>Email: studentA@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Student B</td>
+                            <td><img src="https://via.placeholder.com/40" alt="Student B" class="rounded-circle"></td>
+                            <td>Email: studentB@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Student C</td>
+                            <td><img src="https://via.placeholder.com/40" alt="Student C" class="rounded-circle"></td>
+                            <td>Email: studentC@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header">Update Profile</div>
+            <div class="card-body">
+                <form id="updateProfileForm">
+                    <div class="form-group">
+                        <label for="officeHours">Office Hours</label>
+                        <input type="text" class="form-control" id="officeHours" placeholder="Enter office hours">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email</label>
+                        <input type="email" class="form-control" id="contactEmail" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-header">Resources</div>
+            <div class="card-body">
+                <p>Access teaching resources and materials.</p>
+                <a href="/resources" class="btn btn-secondary">Go to Resources</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('updateProfileForm').onsubmit = function(event) {
+            event.preventDefault();
+            alert('Profile updated successfully!');
+        };
+    </script>
+</body>
+</html>
